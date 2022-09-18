@@ -3,16 +3,388 @@
   <head>
     <meta charset="UTF-8" />
     <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+    <link rel="stylesheet" href="style.css" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>TPMAP Fragile</title>
   </head>
   <body>
-    <div id="app">
+    <div
+      class="relative min-h-screen h-ful w-full flex flex-col justify-between"
+      id="app"
+    >
       <!-- header -->
-      <header></header>
-      <main></main>
-      <footer></footer>
-      <script type="module" src="/src/main.js"></script>
+      <header
+        class="sticky top-0 z-10 flex flex-row justify-start items-center space-x-2 divide-x h-14 w-full p-4 bg-[#f9f9f9] shadow-md"
+      >
+        <img src="/TPMAP-logo.png" class="h-4" />
+
+        <p class="text-xs text-[#6672a9] px-2">
+          Thai People Map and Analytics Platform
+        </p>
+      </header>
+      <main
+        class="relative flex flex-grow flex-col justify-center items-center h-full w-full space-y-8 px-4 py-2 bg-white"
+      >
+        <!-- title -->
+        <div
+          class="mt-4 flex justify-center items-center w-full h-12 font-TH-prompt text-2xl text-slate-800 font-semibold"
+        >
+          สถิติครัวเรือนเปราะบางจากระบบ TPMAP
+        </div>
+
+        <!-- select data -->
+        <div
+          class="font-TH-prompt text-base p-4 gap-4 grid grid-cols-1 md:grid-cols-2 grid-flow-row max-w-6xl mx-auto border border-[#6672a9]/50 w-full rounded-xl shadow-md justify-center items-center"
+        >
+          <div class="flex space-x-2 justify-center items-center">
+            <p class="flex-none">กรองครัวเรือนเปราะบาง:</p>
+            <div
+              class="text-[#6672a9] text-sm flex w-full bg-white border border-[#6672a9]/50 h-8 rounded-lg px-2 items-center"
+            >
+              <p class="w-full">ทั้งหมด</p>
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke-width="1.5"
+                stroke="currentColor"
+                class="flex-none p-2 h-full"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  d="M19.5 8.25l-7.5 7.5-7.5-7.5"
+                />
+              </svg>
+            </div>
+          </div>
+
+          <div class="flex space-x-2 justify-center items-center">
+            <p class="flex-none">เจาะจง:</p>
+            <div
+              class="text-[#6672a9] text-sm flex w-full bg-white border border-[#6672a9]/50 h-8 rounded-lg px-2 items-center"
+            >
+              <p class="w-full">ไม่เจาะจง</p>
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke-width="1.5"
+                stroke="currentColor"
+                class="flex-none p-2 h-full"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  d="M19.5 8.25l-7.5 7.5-7.5-7.5"
+                />
+              </svg>
+            </div>
+          </div>
+        </div>
+
+        <!-- visualize data -->
+        <section
+          class="max-w-6xl mx-auto h-screen flex flex-col md:flex-row space-y-4 space-x-0 md:space-x-4 md:space-y-0 justify-center items-center w-full"
+        >
+          <!-- map -->
+          <div
+            class="flex flex-col justify-center items-center h-4/6 md:h-full w-full bg-white rounded-lg shadow-md px-2 py-4 border-t border-[#6672a9]/10 space-y-4"
+          >
+            <div
+              class="h-8 grid grid-cols-2 justify-items-center items-center w-5/6 border text-xs md:text-sm font-TH-prompt rounded-full divide-x-1"
+            >
+              <div
+                class="bg-slate-100 h-full py-1 text-center w-full justify-center items-center rounded-l-full"
+              >
+                แสดงสีตามจำนวนประชากร
+              </div>
+              <div
+                class="bg-white h-full py-1 text-center w-full justify-center items-center rounded-r-full"
+              >
+                แสดงสีตามจำนวนครัวเรือน
+              </div>
+            </div>
+            <div class="flex-grow bg-slate-100 w-full">map</div>
+          </div>
+
+          <!-- description -->
+          <div
+            class="font-TH-prompt gap-4 grid grid-cols-3 grid-rows-2 md:grid-rows-6 md:grid-cols-1 h-2/6 md:h-full w-full min-w-3/6 md:w-3/6"
+          >
+            <div class="h-full w-full bg-white rounded-lg shadow-md">
+              <p
+                class="p-2 text-white text-center bg-[#6672a9] h-fit lg:h-2/6 rounded-lg rounded-b-none text-sm md:text-base"
+              >
+                จำนวนคนเปราะบางทั้งหมด
+              </p>
+              <div
+                class="w-full h-4/6 flex flex-col justify-center items-center font-light"
+              >
+                <p class="text-sm md:text-base">
+                  <span class="font-semibold md:text-lg">5,305,800</span>
+                  คน
+                </p>
+                <p class="text-sm md:text-base">
+                  <span class="font-semibold md:text-lg">1,472,352</span>
+                  ครัวเรือน
+                </p>
+              </div>
+            </div>
+            <div class="h-full w-full bg-white rounded-lg shadow-md">
+              <p
+                class="p-2 text-white text-center bg-[#6672a9] h-fit lg:h-2/6 rounded-lg rounded-b-none text-sm md:text-base"
+              >
+                เด็กยากจน (ศธ)
+              </p>
+              <div
+                class="w-full h-4/6 flex flex-col justify-center items-center font-light"
+              >
+                <p class="text-sm md:text-base">
+                  <span class="font-semibold md:text-lg">210,887</span> คน
+                </p>
+              </div>
+            </div>
+            <div class="h-full w-full bg-white rounded-lg shadow-md">
+              <p
+                class="p-2 text-white text-center bg-[#6672a9] h-fit lg:h-2/6 rounded-lg rounded-b-none text-sm md:text-base"
+              >
+                ผู้สูงอายุที่ไม่ได้รับเบี้ยฯ
+              </p>
+              <div
+                class="w-full h-4/6 flex flex-col justify-center items-center font-light"
+              >
+                <p class="text-sm md:text-base">
+                  <span class="font-semibold md:text-lg">443,743</span> คน
+                </p>
+              </div>
+            </div>
+            <div class="h-full w-full bg-white rounded-lg shadow-md">
+              <p
+                class="p-2 text-white text-center bg-[#6672a9] h-fit lg:h-2/6 rounded-lg rounded-b-none text-sm md:text-base"
+              >
+                ผู้พิการที่ไม่ได้รับเบี้ยฯ
+              </p>
+              <div
+                class="w-full h-4/6 flex flex-col justify-center items-center font-light"
+              >
+                <p class="text-sm md:text-base">
+                  <span class="font-semibold md:text-lg">22,010</span> คน
+                </p>
+              </div>
+            </div>
+            <div class="h-full w-full bg-white rounded-lg shadow-md">
+              <p
+                class="p-2 text-white text-center bg-[#6672a9] h-fit lg:h-2/6 rounded-lg rounded-b-none text-sm md:text-base"
+              >
+                ผู้ป่วยเรื้อรังที่ช่วยเหลือตัวเองไม่ได้
+              </p>
+              <div
+                class="w-full h-4/6 flex flex-col justify-center items-center font-light"
+              >
+                <p class="text-sm md:text-base">
+                  <span class="font-semibold md:text-lg">7,989</span> คน
+                </p>
+              </div>
+            </div>
+            <div class="h-full w-full bg-white rounded-lg shadow-md">
+              <p
+                class="p-2 text-white text-center bg-[#6672a9] h-fit lg:h-2/6 rounded-lg rounded-b-none text-sm md:text-base"
+              >
+                ครัวเรือนที่บ้านไม่มั่นคง
+              </p>
+              <div
+                class="w-full h-4/6 flex justify-center items-center font-light"
+              >
+                <p class="text-sm md:text-base">
+                  <span class="font-semibold md:text-lg">7,203</span> ครัวเรือน
+                </p>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- detail -->
+        <section class="max-w-6xl mx-auto flex flex-col space-y-8 w-full">
+          <!-- index -->
+          <div
+            class="w-full h-full space-y-2 font-TH-prompt font-light border border-[#6672a9]/50 p-4 rounded-xl shadow-md"
+          >
+            <p class="w-full text-lg font-semibold text-center mb-4">
+              เกณฑ์ครัวเรือนเปราะบาง และนิยามภาระ โดย
+              <span class="text-[#6672a9]">กรมการพัฒนาชุมชน</span>
+            </p>
+            <p class="underline">เกณฑ์การคัดเลือกครัวเรือนเปราะบาง</p>
+            <ol class="list-decimal pl-6 text-sm">
+              <li>
+                เป็นครัวเรือนที่อาชีพเกษตรกรจากข้อมูล จปฐ.
+                และไม่ได้ลงทะเบียนเกษตรกร (หัวหน้าครัวเรือนแจ้งว่าเป็นเกษตรกร
+                และในครัวเรือนไม่มีผู้ใดขึ้นทะเบียนเกษตรกร ฯ)
+                <span class="underline">หรือ</span>
+              </li>
+              <li>
+                รายได้ต่ำกว่า 100.000 บาท
+                และไม่ได้รับเงินสวัสดิการผู้มีรายได้น้อย (รายได้เฉลี่ยต่อคนต่อปี
+                น้อยกว่า 100,000 บาท และไม่มีใครในบ้าน ได้รับบัตรสวัสดิการรัฐ)
+              </li>
+            </ol>
+
+            <p class="underline">นิยามภาระในครัวเรือนเปราะบาง</p>
+            <ol class="list-decimal pl-6 text-sm">
+              <li>
+                ไม่มีความมั่นคงในที่อยู่อาศัย (ตกตัวชี้วัดที่ 8 ตามเกณฑ์ จปฐ)
+              </li>
+              <li>มีเด็กยากจนตามเกณฑ์ ศธ. (ตามฐานข้อมูล ศธ.)</li>
+              <li>มีเด็ก (อายุระหว่าง 3 – 14 ปี)</li>
+              <li>
+                มีผู้สูงอายุ และไม่ได้รับเบี้ยยังชีพ (เบี้ยตามฐานข้อมูล สถ. 62)
+              </li>
+              <li>
+                มีผู้พิการ และไม่ได้รับเบี้ยยังชีพ (เบี้ยตามฐานข้อมูล สถ. 62)
+              </li>
+              <li>มีผู้ป่วยเรื้อรังที่ช่วยเหลือตัวเองไม่ได้</li>
+            </ol>
+          </div>
+
+          <!-- thank for -->
+          <div
+            class="mb-4 w-full lg:pl-4 h-full space-y-6 font-TH-prompt font-light flex flex-col justify-center items-center"
+          >
+            <p class="text-lg font-semibold mt-4 text-center w-full">
+              บูรณาการข้อมูลจากฐานข้อมูล:
+            </p>
+            <div class="list-none text-sm space-y-4 sm:hidden">
+              <div class="flex flex-row space-x-4 justify-start items-center">
+                <img src="/CDD_logo.png" class="h-14 w-14" />
+                <div>
+                  <p class="font-semibold">จปฐ</p>
+                  <p>กรมการพัฒนาชุมชน (ณ มิ.ย. 2562)</p>
+                </div>
+              </div>
+
+              <div class="flex flex-row space-x-4 justify-start items-center">
+                <img src="/MOF_logo.png" class="h-14 w-14" />
+                <div>
+                  <p class="font-semibold">บัตรสวัสดิการแห่งรัฐ</p>
+                  <p>กระทรวงการคลัง (ณ พ.ย. 2561)</p>
+                </div>
+              </div>
+
+              <div class="flex flex-row space-x-4 justify-start items-center">
+                <img src="/OAE_logo.png" class="h-14 w-14" />
+                <div>
+                  <p class="font-semibold">Farmer one</p>
+                  <p>สำนักงานเศรษฐกิจการเกษตร</p>
+                </div>
+              </div>
+
+              <div class="flex flex-row space-x-4 justify-start items-center">
+                <img src="/DLA_logo.png" class="h-14 w-14" />
+                <div>
+                  <p class="font-semibold">การจ่ายเบี้ยยังชีพ</p>
+                  <p>กรมส่งเสริมการปกครองท้องถิ่น (ณ พ.ค.2562)</p>
+                </div>
+              </div>
+
+              <div class="flex flex-row space-x-4 justify-start items-center">
+                <img src="/MOE_logo.gif" class="h-14 w-14" />
+                <div>
+                  <p class="font-semibold">ฐานข้อมูลนักเรียน</p>
+                  <p>กระทรวงศึกษาธิการ (ณ พ.ค. 2563)</p>
+                </div>
+              </div>
+            </div>
+            <div
+              class="hidden p-4 sm:grid grid-cols-3 lg:grid-cols-5 gap-8 grid-flow-row max-w-4/6 items-center"
+            >
+              <div class="flex flex-col space-y-4 justify-center items-center">
+                <img src="/CDD_logo.png" class="h-28 w-28" />
+                <div class="hidden lg:block text-center text-xs">
+                  <p class="font-semibold">จปฐ</p>
+                  <p class="">กรมการพัฒนาชุมชน</p>
+                  <p>(ณ มิ.ย. 2562)</p>
+                </div>
+              </div>
+              <!-- <img src="/CDD_logo.png" class="h-28 w-28" /> -->
+              <div class="flex flex-col space-y-4 justify-center items-center">
+                <img src="/MOF_logo.png" class="h-28 w-28" />
+                <div class="hidden lg:block text-center text-xs">
+                  <p class="font-semibold">บัตรสวัสดิการแห่งรัฐ</p>
+                  <p>กระทรวงการคลัง</p>
+                  <p>(ณ พ.ย. 2561)</p>
+                </div>
+              </div>
+              <!-- <img src="/MOF_logo.png" class="h-28 w-28" /> -->
+
+              <div class="flex flex-col space-y-4 justify-center items-center">
+                <img src="/OAE_logo.png" class="h-28 w-28" />
+                <div class="hidden lg:block text-center text-xs">
+                  <p class="font-semibold">Farmer one</p>
+                  <p>สำนักงานเศรษฐกิจการเกษตร</p>
+                  <p class="text-white">empty</p>
+                </div>
+              </div>
+              <!-- <img src="/OAE_logo.png" class="h-28 w-28" /> -->
+
+              <div class="flex flex-col space-y-4 justify-center items-center">
+                <img src="/DLA_logo.png" class="h-28 w-28" />
+                <div class="hidden lg:block text-center text-xs">
+                  <p class="font-semibold">การจ่ายเบี้ยยังชีพ</p>
+                  <p>กรมส่งเสริมการปกครองท้องถิ่น</p>
+                  <p>(ณ พ.ค.2562)</p>
+                </div>
+              </div>
+              <!-- <img src="/DLA_logo.png" class="h-28 w-28" /> -->
+
+              <div class="flex flex-col space-y-4 justify-center items-center">
+                <img src="/MOE_logo.gif" class="h-28 w-28" />
+                <div class="hidden lg:block text-center text-xs">
+                  <p class="font-semibold">ฐานข้อมูลนักเรียน</p>
+                  <p>กระทรวงศึกษาธิการ</p>
+                  <p>(ณ พ.ค. 2563)</p>
+                </div>
+              </div>
+              <!-- <img src="/MOE_logo.gif" class="h-28 w-28" /> -->
+            </div>
+          </div>
+        </section>
+
+        <!-- small banner -->
+        <section
+          class="pt-4 border-t divide-x h-24 flex flex-col lg:flex-row justify-center items-center w-full text-xs space-x-0 space-y-2 lg:space-x-2 lg:space-y-0 font-TH-prompt"
+        >
+          <p class="text-center">
+            * การวิเคราะห์ เป็นเพียงความเห็นในเชิงวิชาการเท่านั้น /
+            ตัวเลขและสถิติที่แสดง ไม่บ่งบอกถึงตัวเลขและสถิติที่เป็นปัจจุบัน
+          </p>
+          <button
+            class="space-x-2 h-8 py-2 px-4 border rounded-md bg-[#6672a9] text-white flex justify-center items-center"
+          >
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              class="flex-none h-full"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke="currentColor"
+              stroke-width="2"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"
+              />
+            </svg>
+
+            <p class="flex-none">สถิติครัวเรือนเปราะบางรายจังหวัด</p>
+          </button>
+        </section>
+      </main>
+      <footer
+        class="mt-4 relative flex justify-center items-center w-full h-14 p-4 text-xs shadow-sm text-white bg-[#2f3192]"
+      >
+        Copyright ©2022 SAI, NECTEC. All Right Reserved
+      </footer>
+      <!-- <script type="module" src="/src/main.js"></script> -->
     </div>
   </body>
 </html>
