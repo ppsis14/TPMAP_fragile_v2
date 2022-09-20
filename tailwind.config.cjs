@@ -25,6 +25,7 @@ module.exports = {
         "TH-prompt": ["Prompt", "sans-serif"],
         "TH-sarabun": ["Sarabun", "sans-serif"],
         "quick-sans": ["Quicksand", "sans-serif"],
+        "TH-kanit": ["Kanit", "sans-serif"],
         "yeseva-1": ["Yeseva One", "cursive"],
       },
       animation: {
